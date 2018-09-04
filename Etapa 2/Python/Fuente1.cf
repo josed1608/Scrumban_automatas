@@ -1,0 +1,36 @@
+//Las declaraciones de funciones comienzan con la palabra reservada fnc y deben ir antes de que sean utilizadas en el código
+fnc int suma(int num1, int num2){
+	return num1 + num2;
+}
+
+//De aquí comienza a ejecutar el código
+//Se imprime la entrada estándar con la función prnt
+prnt("Ingrese el primer numero\n");
+int num1 = 0;
+//Se lee de la entrada estándar con con la función read. Se utilizan especificadores del tipo de variable que se desea leer, en este caso %d indica int
+read("%d", num1);
+
+prnt("Ingrese el segundo numero\n");
+int num2 = 0;
+read("%d", num2);
+int suma = suma(num1, num2);
+
+if(suma > 100){
+	prnt("La suma es mayor a 100 y el resultado es:  %d", suma);
+}
+else{
+	prnt("La suma es menor a 100 y el resultado es: %d", suma);
+}
+
+//Se imprimen los numeros del 0 al 19 usando un ciclo whl
+int i = 0;
+whl(i<20){
+	prnt(i);
+    i=i+1;
+}
+
+/* Se imprimen los numeros del
+    0 al 30 con un ciclo for */
+fr(int j=0; j<=30; j=j+1){
+	prnt(j);
+}

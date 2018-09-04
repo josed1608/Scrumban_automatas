@@ -1,0 +1,50 @@
+//La definición de clases comienza con la palabra reservada "class". Todos los atributos y funciones de una clase son públicos
+class ClasePadre{
+	//Atributos de la clase
+    int campoInt;
+    double campoDouble;
+    str campoString;
+    
+    //Constructor de la clase
+    ClasePadre(){
+    	campoInt = 1;
+        campoDouble = 10.5;
+        campoString = "padre";
+    }
+    
+    //Para denotar una función que puede ser sobreescrita por los hijos se debe utilizar la palabra "virtual"
+    virtual fnc void metodoPadre(){
+    	prnt("Soy el padre");
+    }
+}
+
+//La herencia se denota con el caracter ":" luego del nombre de la clase seguido del nombre de la clase de la que hereda
+class ClaseHijo : ClasePadre{
+	//Declaración de un arreglo de tipo int de tamaño 10
+    int[10] arreglo;
+
+	ClaseHijo(){
+    	//Ejecuta el constructor de la clase padre
+    	ClasePadre::ClasePadre();
+        //Copia el valor 0 en todos los campos del arreglo
+        arreglo = 0;
+    }
+    
+    //Cuando se va a sobreescribir una función de la clase padre se debe utilizar la palabra "override"
+    override fnc void metodoPadre(){
+    	prnt("Soy el hijo");
+    }
+}
+
+ClaseHijo hijo = ClaseHijo();
+//Debería imprimir "Soy el hijo" en la salida estándar
+hijo.metodoPadre();
+
+for(int i=0; i<10; i++){
+	hijo.arreglo[i] = i;
+}
+
+/*Aquí se demuestra la instrucción especial que consiste en poder imprimir arreglos directamente 
+en la salida estándar sin que el programdor tenga que implementar el ciclo manualmente.
+Además se podrían imprimir matrices, listas y cualquier otro contenedor del lenguaje por medio de esta instrucción*/
+prnt("Arreglo del hijo: %a", hijo.arreglo);
